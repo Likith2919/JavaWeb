@@ -4,7 +4,8 @@ RUN yum install git -y
 RUN yum -y install maven
 WORKDIR /JavaWeb
 COPY . .
-RUN mvn package
+RUN mvn clean package
+#RUN mvn package
 
 
 FROM tomcat
