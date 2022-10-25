@@ -10,4 +10,4 @@ RUN mvn clean package
 
 FROM amazon/aws-cli
 COPY --from=junk /JavaWeb/target/*.war /usr/local/bin
-RUN  aws s3 cp /usr/local/bin/*.war s3://testbucketdfad/
+RUN  aws s3 cp /usr/local/bin/*.war s3://testbucketdfad/ --recursive
