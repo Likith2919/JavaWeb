@@ -8,6 +8,6 @@ RUN mvn clean package
 #RUN mvn package
 
 
-FROM tomcat
-COPY --from=junk /JavaWeb/target/*.war /usr/local/tomcat/webapps
-EXPOSE 8080
+FROM amazon/aws-cli
+COPY --from=junk /JavaWeb/target/*.war /usr/local/bin
+RUN  aws s3 cp /usr/local/bin/*.war s3://testbucketdfad/
